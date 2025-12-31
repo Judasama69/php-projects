@@ -23,6 +23,7 @@ class Foods {
         return $this->type;
     }
 
+    // Tells you how many is the item
     function set_quantity($quantity): void {
         $this->quantity = $quantity;
     }
