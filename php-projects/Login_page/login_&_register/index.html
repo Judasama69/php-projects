@@ -37,19 +37,17 @@
 
     <script>
         function show(id) {
-            // Hide all forms
             document.querySelectorAll('.form-box').forEach(div => div.style.display = 'none');
-            // Show the specific form
             document.getElementById(id).style.display = 'block';
         }
 
-        // Logic to catch URL messages from PHP
         const params = new URLSearchParams(window.location.search);
         const msgDiv = document.getElementById('msg');
         if(params.get('status') === 'success') {
             msgDiv.innerText = "Account Created Successfully!";
             msgDiv.style.color = "green";
         }
+
         if(params.get('error') === 'taken') {
             msgDiv.innerText = "Error: Username already exists.";
             msgDiv.style.color = "red";
