@@ -1,28 +1,13 @@
 <?php
 
-include 'Foods.php';
+include 'Books.php';
 
-$Burger = new Foods();
-$Hotdog = new Foods();
-
-$Burger->set_name('Burger');
-$Burger->set_type('Junk Food');
-$Burger->set_quantity(2);
+$Book1 = new Books(" J.K Rowling", " Harry Potter", False);
 
 
-$Hotdog->set_name('Hotdog');
-$Hotdog->set_type('Junk Food');
-$Hotdog->set_quantity(3);
+echo $Book1->getDetails();
+echo "<br>";
+echo $Book1->borrowBook();
+echo "<br>";
 
-echo $Burger->get_name();
-echo "<br>";
-echo $Burger->get_type();
-echo "<br>";
-echo $Burger->get_quantity();
-echo "<br>";
-echo $Hotdog->get_name();
-echo "<br>";
-echo $Hotdog->get_type();
-echo "<br>";
-echo $Hotdog->get_quantity();
 
