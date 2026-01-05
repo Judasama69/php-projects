@@ -1,0 +1,1 @@
+You will learn how to use namespaces in this activity
