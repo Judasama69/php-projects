@@ -1,0 +1,2 @@
+The Activity: The Payment Gateway
+Imagine you are building an e-commerce store. You need to handle different ways customers can pay (Credit Card and PayPal). While all payments have an amount, the way they are "processed" is different.
