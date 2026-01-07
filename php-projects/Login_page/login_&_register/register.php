@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $check->execute();
 
     if ($check->get_result()->num_rows > 0) {
-        header("Location: index.html?error=taken");
+        header();
         exit();
     } else {
         $hash = password_hash($pass, PASSWORD_DEFAULT);
@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_param("ss", $user, $hash);
 
         if ($stmt->execute()) {
-            header("Location: index.html?status=success");
+            
             exit();
         }
     }
