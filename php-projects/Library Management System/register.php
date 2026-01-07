@@ -1,7 +1,7 @@
 <?php
 include 'db.php';
-$conn = new mysqli("localhost", "root", "", "library_db_system");
 
+$conn = new mysqli("localhost", "root", "", "library_db_system");
 if ($conn->connect_error) die("Connection failed");
 
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
@@ -13,32 +13,41 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 	$stmt = $conn->prepare("INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)");
     $stmt->bind_param("ssss", $name, $email, $password, $role);
 
-
 	if ($stmt->execute()) {
 		echo "Registered Successfully";
 	} else {
 		echo "Error : " . $stmt->error;
 	}
-
     $stmt->close();
 }
 ?>
-//commit
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-</head>
+<?php include "heading.php"; ?>
 <body>
-    <form action="register.php" method="post">
-			<input type="text" name="name">
-			<input type="email" name="email">
-            <input type="password" name="password">
-			<input type="text" name="role" value="user" hidden>
-			<button type="submit">Sign Up</button>
-	</form>
+<div class="container">
+    <div class="form_area">
+        <p class="title">SIGN UP</p>
+        <form action="register.php" method="post">
+            <div class="form_group">
+                <label class="sub_title" for="name">Name</label>
+                <input placeholder="Enter your full name" class="form_style" type="text">
+            </div>
+            <div class="form_group">
+                <label class="sub_title" for="email">Email</label>
+                <input placeholder="Enter your email" id="email" class="form_style" type="email">
+            </div>
+            <div class="form_group">
+                <label class="sub_title" for="password">Password</label>
+                <input placeholder="Enter your password" id="password" class="form_style" type="password">
+            </div>
+            <div>
+                <button class="btn">SIGN UP</button>
+                <p>Have an Account? <a class="link" href="login.php">Login Here!</a></p><a class="link" href="">
+            </a></div><a class="link" href="">
+
+</a></div>
 </body>
 </html>
 
