@@ -21,7 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $stmt->close();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <?php include "heading.php"; ?>
