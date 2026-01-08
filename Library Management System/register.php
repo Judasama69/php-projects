@@ -1,8 +1,6 @@
 <?php
 include 'db.php';
-
-$conn = new mysqli("localhost", "root", "", "library_db_system");
-if ($conn->connect_error) die("Connection failed");
+/** @var mysqli $conn */
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $name = $_POST['name'];
