@@ -11,12 +11,12 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #EDDCD9;
+  background-color: #efe5e5;
   height: auto;
   width: auto;
   border: 2px solid #264143;
   border-radius: 20px;
-  box-shadow: 3px 4px 0px 1px #e3ddd8;
+  box-shadow: 3px 4px 0px 1px #2d322d;
 }
 
 .title {
@@ -50,7 +50,7 @@
 
 .form_style:focus, .btn:focus {
   transform: translateY(4px);
-  box-shadow: 1px 2px 0px 0px #d0bfaa;
+  box-shadow: 1px 2px 0px 0px #484c54;
 }
 
 .btn {
@@ -58,10 +58,10 @@
   margin: 25px 0px;
   width: 290px;
   font-size: 15px;
-  background: #e59ebd;
+  background: #3990d4;
   border-radius: 10px;
   font-weight: 800;
-  box-shadow: 3px 3px 0px 0px #c6baad;
+  box-shadow: 3px 3px 0px 0px #91b1a1;
 }
 
 .btn:hover {
