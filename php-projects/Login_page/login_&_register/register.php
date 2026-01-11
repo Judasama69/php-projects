@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $check->execute();
 
     if ($check->get_result()->num_rows > 0) {
-        header();
+        header("Location: index.html/error");
         exit();
     } else {
         $hash = password_hash($pass, PASSWORD_DEFAULT);
