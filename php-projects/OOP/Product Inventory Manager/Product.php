@@ -16,7 +16,8 @@ class Product
         return "Product: {$this->name} | Price: " . $formattedPrice;
     }
 
-    public static function sanitize($data) {
+    public static function sanitize($data): string
+    {
         return htmlspecialchars(strip_tags(trim($data)));
     }
 
