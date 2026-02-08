@@ -1,0 +1,1 @@
+Your task is to create a small system that manages a collection of books. You will need to implement the core principles of OOP: Classes, Properties, Methods, and Visibility.
