@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# If the requested path is an existing file or directory, serve it normally.
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Otherwise, route everything through the front controller.
+RewriteRule ^ index.php [L]
+

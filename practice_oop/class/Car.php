@@ -1,6 +1,6 @@
 <?php
 
-namespace class;
+namespace MyClass;
 
 class Car
 {

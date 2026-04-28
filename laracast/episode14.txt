@@ -1,0 +1,37 @@
+Walkthrough (Episode 14: “Make a PHP Router”) — this repo
+
+Goal
+- Use a single entry point (`index.php`) to decide which page to show based on the URL.
+- Load a controller, then a view.
+
+1) Front controller / router (`index.php`)
+- The browser hits `index.php` for “pretty URLs” like `/laracast/about`.
+- It reads the current path, strips the project folder prefix (`/laracast`), then routes:
+  - `/`, `/home`, `/index` → `controllers/home.php`
+  - `/about` → `controllers/about.php`
+  - `/contact` → `controllers/contact.php`
+  - `/project` → `controllers/project.php`
+  - anything else → `views/404.view.php`
+
+2) Helpers (`functions.php`)
+- `currentPath()` returns the request path only (so query strings like `?page=2` don’t break routing).
+- `urlIs($value)` returns true/false when the current path matches a specific path (used for nav “active” styling).
+
+3) Controllers (`controllers/*.php`)
+- Controllers should be thin: set data (like `$header`) and load a view.
+- Example:
+  - `$header = 'My Projects';`
+  - `require __DIR__ . '/../views/project.view.php';`
+
+4) Views (`views/*.view.php`)
+- Views are HTML templates.
+- They usually include partials from `views/partials/` (nav, header, banner, footer).
+- Example page view: `views/project.view.php`.
+
+5) Navigation (`views/partials/nav.php`)
+- Links should match the router paths: `/laracast/home`, `/laracast/about`, etc.
+- Active styling uses `urlIs('/laracast/about')` so the current page is highlighted.
+
+6) Rewrite rule (`.htaccess`)
+- Required so `/laracast/about` (no `.php`) still runs `index.php`.
+- Without it, Apache returns 404 before PHP can route the request.
