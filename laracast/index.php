@@ -2,21 +2,31 @@
 
 require 'functions.php';
 
-// /laracast is the project folder (e.g. http://localhost/laracast)
-$uri = currentPath();
-$basePath = '/laracast';
-$path = str_starts_with($uri, $basePath) ? substr($uri, strlen($basePath)) : $uri;
-$path = $path === '' ? '/' : $path;
 
-if ($path === '/' || $path === '/index' || $path === '/home') {
-    require 'controllers/home.php';
-} else if ($path === '/about') {
-    require 'controllers/about.php';
-} else if ($path === '/contact') {
-    require 'controllers/contact.php';
-} else if ($path === '/project') {
-    require 'controllers/project.php';
-} else {
-    http_response_code(404);
-    require 'views/404.view.php';
+$basePath = '/laracast';
+$uri = parse_url($_SERVER['REQUEST_URI'])['path'] ?? '/';
+
+// If this project is hosted in a subfolder, strip it from the URI for routing.
+if ($basePath !== '' && str_starts_with($uri, $basePath)) {
+    $uri = substr($uri, strlen($basePath)) ?: '/';
 }
+
+// Default route
+if ($uri === '/') {
+    $uri = '/home';
+}
+
+$routes = [
+    '/home' => 'controllers/home.php',
+    '/contact' => 'controllers/contact.php',
+    '/about' => 'controllers/about.php',
+    '/project' => 'controllers/project.php',
+];
+
+if (array_key_exists($uri, $routes)) {
+    require $routes[$uri];
+    exit();
+}
+
+http_response_code(404);
+require 'views/404.view.php';

@@ -1,6 +1,6 @@
 <?php
 
-function dd($value): void
+function dd($value)
 {
     echo '<pre>';
     var_dump($value);
@@ -8,12 +8,6 @@ function dd($value): void
     die();
 }
 
-function currentPath(): string
-{
-    return parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?? '/';
-}
-
-function urlIs(string $value): bool
-{
-    return currentPath() === $value;
+function urlIs($value) {
+    return $_SERVER['REQUEST_URI'] === $value;
 }

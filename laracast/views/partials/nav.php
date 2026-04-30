@@ -7,10 +7,10 @@
                         alt="Your Company" class="size-8" />
                 </div>
                 <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
+                        <div class="ml-10 flex items-baseline space-x-4">
+                            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
                         <a href="/laracast/home" aria-current="page"
-                            class="<?php echo (urlIs('/laracast/') || urlIs('/laracast') || urlIs('/laracast/home')) ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white'; ?> rounded-md px-3 py-2 text-sm font-medium">Home</a>
+                            class="<?php echo urlIs('/laracast/home') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white'; ?> rounded-md px-3 py-2 text-sm font-medium">Home</a>
                         <a href="/laracast/about"
                             class="<?php echo urlIs('/laracast/about') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white'; ?> rounded-md px-3 py-2 text-sm font-medium">About</a>
                         <a href="/laracast/project"

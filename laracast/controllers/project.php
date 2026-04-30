@@ -2,5 +2,4 @@
 
 $header = 'My Projects';
 
-
-require __DIR__ . '/../views/project.view.php';
+require 'views/project.view.php';

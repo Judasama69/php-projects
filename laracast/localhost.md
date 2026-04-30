@@ -1,6 +1,6 @@
-Laragon vhost root: http://php-projects.code/
+Laragon vhost root: 
 
-This project: http://php-projects.code/laracast/
+This project: https://localhost/laracast/
 
 Fallback (PHP built-in server):
 cd C:\laragon\www\php-projects\laracast
